@@ -1,0 +1,19 @@
+<ng-container *ngIf="(postService.posts$ | async) as posts;else loading">
+
+<ng-container *ngIf="posts.length > 0;else emptyArray">
+    <ul>
+        <li *ngFor="let post of posts">
+            {{post.title}}
+        </li>
+    </ul>
+</ng-container>
+
+<ng-template #emptyArray>
+    <h1>Something went wrong</h1>
+</ng-template>
+
+</ng-container>
+
+<ng-template #loading>
+    <h1>Loading....</h1>
+</ng-template>
